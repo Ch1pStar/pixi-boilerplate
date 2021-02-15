@@ -16,12 +16,24 @@ module.exports = {
         }
       },
       {
-        test: [/\.vert$/, /\.frag$/],
+        test:  /\.(vert|frag)$/i,
         use: "raw-loader"
       },
       {
-        test: /\.(gif|png|jpe?g|svg|xml|wav)$/i,
+        test: /\.(gif|png|jpe?g|svg|xml|wav|bin|woff|woff2|eot|ttf|otf)$/i,
         use: "file-loader"
+      },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(gltf)$/,
+        use: [
+          {
+            loader: 'gltf-webpack-loader'
+          }
+        ]
       }
     ]
   },

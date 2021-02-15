@@ -4,6 +4,7 @@ import Game from '../Game';
 import { Viewport } from 'pixi-viewport';
 import { center } from './utils';
 import Assets from './AssetManager';
+import * as PIXI3D from 'pixi3d';
 
 /**
  * Game entry point. Holds the game's viewport and responsive background
@@ -66,6 +67,10 @@ export default class GameApplication extends Application {
     if (this.config.game.decelerate) viewport.decelerate();
 
     this.viewport = viewport;
+
+    let control = new PIXI3D.CameraOrbitControl(this.view)
+
+    window.control = control
   }
 
   /**
@@ -98,6 +103,7 @@ export default class GameApplication extends Application {
 
     const sprite = Sprite.from('background');
 
+    sprite.alpha = 0.2
     this.stage.addChildAt(sprite);
     this.background = sprite;
   }

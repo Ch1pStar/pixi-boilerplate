@@ -2,7 +2,7 @@ export default {
   view: {
     width: window.innerWidth,
     height: window.innerHeight,
-    backgroundColor: 0xffffff,
+    backgroundColor: 0x013BBC,
     worldWidth: 1000,
     worldHeight: 500,
     resizeTo: window,
@@ -12,9 +12,9 @@ export default {
     width: 1000,
     height: 500,
     drag: false,
-    pinch: true,
-    decelerate: true,
-    wheel: true,
+    pinch: false,
+    decelerate: false,
+    wheel: false,
   },
   scenes: {
     Splash: {
