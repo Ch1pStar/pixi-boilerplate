@@ -1,6 +1,4 @@
-import { Sprite, Text, Container, Loader, Filter } from 'pixi.js';
 import Scene from './Scene';
-import gsap from 'gsap';
 
 import ModelPreview from './components/ModelPreview';
 import ProgressCarousel from './components/ProgressCarousel';

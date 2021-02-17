@@ -1,5 +1,5 @@
 import Assets from '../../core/AssetManager';
-import { Container, Loader } from 'pixi.js';
+import { Container } from 'pixi.js';
 
 import * as PIXI3D from 'pixi3d';
 

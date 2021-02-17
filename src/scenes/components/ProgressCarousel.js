@@ -9,7 +9,7 @@ export default class ProgressCorousel extends Container {
 		this._itemSelectCallback = itemSelectCallback;
 
 		this.rewardsConfig = rewardsConfig;
-    	this._setupRewardsCarousel();
+    this._setupRewardsCarousel();
 	}
 
   _setupRewardsCarousel() {
@@ -204,6 +204,4 @@ export default class ProgressCorousel extends Container {
 
     return g;
   }
-
-
 }
