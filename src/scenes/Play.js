@@ -1,4 +1,5 @@
 import Scene from './Scene';
+import Assets from '../core/AssetManager';
 
 import ModelPreview from './components/ModelPreview';
 import ProgressCarousel from './components/ProgressCarousel';
@@ -8,15 +9,19 @@ import config from '../config';
 
 export default class Play extends Scene {
   async onCreated() {
-    var cfg = config.scenes.Play.rewards;
+    var cfg = config.scenes.Play;
+
+    // console.error(Assets.sounds.soundtrack_background.state())
+    Assets.sounds.soundtrack_background.play()
+    Assets.sounds.soundtrack_background.play()
 
     this.modelPreview = new ModelPreview();
-    this.addChildAt(this.modelPreview);
+    this.addChild(this.modelPreview);
 
-    this.infoContainer = new InfoContainer();
+    this.infoContainer = new InfoContainer(cfg.defaultInfoStyle);
     this.addChild(this.infoContainer);
 
-    this.progressCarousel = new ProgressCarousel(cfg, (index)=>this.selectItem(index));
+    this.progressCarousel = new ProgressCarousel(cfg.rewards, (index)=>this.selectItem(index));
     this.addChild(this.progressCarousel);
 
     this.selectItem(0);
@@ -34,10 +39,10 @@ export default class Play extends Scene {
   }
 
   selectItem(itemIndex) {
-    var {info, model} = config.scenes.Play.rewards[itemIndex];
+    var {info, preview} = config.scenes.Play.rewards[itemIndex];
 
     this.progressCarousel.selectCard(itemIndex);
     this.infoContainer.updateInfo(info)
-    this.modelPreview.updateModel(model);
+    this.modelPreview.update(preview);
   }
 }

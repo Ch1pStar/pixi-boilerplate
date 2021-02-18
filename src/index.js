@@ -1,4 +1,5 @@
 import Application from './core/Application';
+import Assets from './core/AssetManager';
 import * as PIXI from 'pixi.js';
 import * as PIXI3D from 'pixi3d';
 import PixiPlugin from 'gsap/PixiPlugin'
@@ -8,6 +9,7 @@ if (process.env.NODE_ENV === 'development') {
   // required for pixi dev tools to work
   window.PIXI = PIXI;
   window.PIXI3D = PIXI3D;
+  window.Assets = Assets
 }
 
 PixiPlugin.registerPIXI(PIXI);

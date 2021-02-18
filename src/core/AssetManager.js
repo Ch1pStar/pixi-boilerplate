@@ -2,10 +2,10 @@ import { Howl } from 'howler';
 import { Loader, Texture } from 'pixi.js';
 import config from '../config';
 
-const context = require.context('../assets', true, /\.(jpg|png|wav)$/im);
+const context = require.context('../assets', true, /\.(jpg|png|wav|mp3)$/im);
 
 const IMG_EXTENSIONS = ['jpeg', 'jpg', 'png'];
-const SOUND_EXTENSIONS = ['wav', 'ogg', 'm4a'];
+const SOUND_EXTENSIONS = ['wav', 'ogg', 'm4a', 'mp3'];
 
 /**
  * Global asset manager to help streamline asset usage in your game.
@@ -45,11 +45,15 @@ class AssetManager {
    */
   load(assets = { images: this._images, sounds: this._sounds }, progressCallback = () => {}) {
     const { images, sounds } = assets;
-    const assetTypesCount = Object.keys(assets).length;
     const imagesCount = images ? Object.keys(images).length : 0;
     const soundsCount = sounds ? Object.keys(sounds).length : 0;
     const loadPromises = [];
+    let assetTypesCount = 0;
     let loadProgress = 0;
+
+    // todo make prettier
+    if(imagesCount) assetTypesCount++;
+    if(soundsCount) assetTypesCount++;
 
     const calcTotalProgress = (val) => {
       loadProgress += val / assetTypesCount;

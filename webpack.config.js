@@ -4,7 +4,9 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
-  mode: 'production',
+  mode: 'production',  devServer: {
+    writeToDisk: true,
+  },
   devtool: "eval-source-map",
   module: {
     rules: [
@@ -20,7 +22,7 @@ module.exports = {
         use: "raw-loader"
       },
       {
-        test: /\.(gif|png|jpe?g|svg|xml|wav|bin|woff|woff2|eot|ttf|otf)$/i,
+        test: /\.(gif|png|jpe?g|svg|xml|wav|mp3|bin|woff|woff2|eot|ttf|otf)$/i,
         use: "file-loader"
       },
       {

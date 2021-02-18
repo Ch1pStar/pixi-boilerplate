@@ -21,42 +21,101 @@ export default {
       hideDelay: 0,
     },
     Play: {
+      defaultInfoStyle: {
+        type:{fontFamily: 'Burbank', fontSize: 20, fontStyle: 'italic', fill: 0x23D1F3},
+        quality:{fontFamily: 'Burbank', fontSize: 20, fontStyle: 'italic', fill: 0xB85EE9},
+        name:{fontFamily: 'Burbank', fontSize: 34, fill: 'white'},
+        description:{fontFamily: 'Burbank', fontSize: 16, fill: 0xC9F0FB, fontWeight: 'bold'},
+        collection:{fontFamily: 'Burbank', fontSize: 20, fill: 0xC9F0FB, fontWeight: 'bold'},
+        tip: {fontFamily: 'Burbank', fontSize: 20, fill: 0xC9F0FB, fontWeight: 'bold', fontStyle: 'italic', letterSpacing: 2},
+      },
       rewards: [
         {
-          model: {
-            name: 'pug',
+          preview: {
+            name: 'pug_suprem',
             config: {x: 0, y: -2.5, scale: 0.025},
           },
           thumbnail: 'pugThumbnail',
           info: {
             type: {
               text: 'Outfit  ',
-              style: {fontFamily: 'Burbank', fontSize: 20, fontStyle: 'italic', fill: 0x23D1F3},
             },
             quality: {
               text: 'Epic  ',
-              style: {fontFamily: 'Burbank', fontSize: 20, fontStyle: 'italic', fill: 0xB85EE9},
             },
             name: {
               text: 'Dog The Pugg   ',
-              style: {fontFamily: 'Burbank', fontSize: 34, fill: 'white'},
             },
             description: {
-              text: `Woof  `,
-              style: {fontFamily: 'Burbank', fontSize: 16, fill: 0xC9F0FB, fontWeight: 'bold'},
+              text: `Floor Gang `,
             },
             collection: {
               text: `THE PUG SET  `,
-              style: {fontFamily: 'Burbank', fontSize: 20, fill: 0xC9F0FB, fontWeight: 'bold'},
             },
             tip: {
               text: `COMPLETE THE BESKAR QUEST TO\nUPGRADE MANDALORIAN'S ARMOR!  `,
-              style: {fontFamily: 'Burbank', fontSize: 20, fill: 0xC9F0FB, fontWeight: 'bold', fontStyle: 'italic', letterSpacing: 2},
             }
           },
         },
         {
-          model: {
+          preview: {
+            name: 'musicPackLarge',
+            type: 'image',
+            config: {x: 0, y: -100, scale: 1, anchor: 0.5},
+          },
+          thumbnail: 'musicThumbnail',
+          info: {
+            type: {
+              text: 'Music Pack  ',
+            },
+            quality: {
+              text: 'Rare  ',
+              style: {fill: 0x06ADFF}
+            },
+            name: {
+              text: 'SPACE GROOVE ',
+            },
+            description: {
+              text: `Press play and space out. `,
+            },
+            collection: {
+              text: `SPACE GROOVE  `,
+            },
+            tip: {
+              text: '',
+            }
+          },
+        },
+        {
+          preview: {
+            name: 'stormtrooper',
+            config: {x: 0, y: -2.5, scale: 0.025},
+          },
+          thumbnail: 'stormtrooperThumbnail',
+          info: {
+            type: {
+              text: 'Dance  ',
+            },
+            quality: {
+              text: 'Rare  ',
+              style: {fill: 0x06ADFF}
+            },
+            name: {
+              text: 'Dog The Pugg   ',
+            },
+            description: {
+              text: `Woof  `,
+            },
+            collection: {
+              text: `THE PUG SET  `,
+            },
+            tip: {
+              text: `COMPLETE THE BESKAR QUEST TO\nUPGRADE MANDALORIAN'S ARMOR!  `,
+            }
+          },
+        },
+        {
+          preview: {
             name: 'mando',
             config: {x: 0,y: 1, scale: 0.025,}
           },
@@ -64,64 +123,48 @@ export default {
           info: {
             type: {
               text: 'Outfit',
-              style: {fontFamily: 'Burbank', fontSize: 20, fontStyle: 'italic', fill: 0x23D1F3},
             },
             quality: {
               text: 'Epic',
-              style: {fontFamily: 'Burbank', fontSize: 20, fontStyle: 'italic', fill: 0xB85EE9},
             },
             name: {
               text: 'Mandalorian',
-              style: {fontFamily: 'Burbank', fontSize: 34, fill: 'white'},
             },
             description: {
               text: `Forged on a girddle of rage.\n[Enlightened]`,
-              style: {fontFamily: 'Burbank', fontSize: 16, fill: 0xC9F0FB, fontWeight: 'bold'},
             },
             collection: {
               text: `THE BREAKFAST BANDING SET`,
-              style: {fontFamily: 'Burbank', fontSize: 20, fill: 0xC9F0FB, fontWeight: 'bold'},
             },
             tip: {
               text: `COMPLETE THE BESKAR QUEST TO\nUPGRADE MANDALORIAN'S ARMOR!  `,
-              style: {fontFamily: 'Burbank', fontSize: 20, fill: 0xC9F0FB, fontWeight: 'bold', fontStyle: 'italic', letterSpacing: 2},
             }
           },
         },
         {
-          model:{
+          preview:{
             name: 'razorcrest',
-            config: {
-              x: -8,
-              y: -2,
-              scale: 0.005,
-            },
+            config: {x: -8, y: -2, scale: 0.005},
           },
           thumbnail: 'shipThumbnail',
           info: {
             type: {
               text: 'Glider',
-              style: {fontFamily: 'Burbank', fontSize: 20, fontStyle: 'italic', fill: 0x23D1F3},
             },
             quality: {
               text: 'Epic',
-              style: {fontFamily: 'Burbank', fontSize: 20, fontStyle: 'italic', fill: 0xB85EE9},
             },
             name: {
               text: 'Razor Crest',
-              style: {fontFamily: 'Burbank', fontSize: 34, fill: 'white'},
             },
             description: {
               text: ``,
-              style: {fontFamily: 'Burbank', fontSize: 16, fill: 0xC9F0FB, fontWeight: 'bold'},
             },
             collection: {
               text: `Mandalorian Set`,
-              style: {fontFamily: 'Burbank', fontSize: 20, fill: 0xC9F0FB, fontWeight: 'bold'},
             },
             tip: {
               text: `COMPLETE THE BESKAR QUEST TO\nUPGRADE MANDALORIAN'S ARMOR!  `,
-              style: {fontFamily: 'Burbank', fontSize: 20, fill: 0xC9F0FB, fontWeight: 'bold', fontStyle: 'italic', letterSpacing: 2},
             }
           },
         },

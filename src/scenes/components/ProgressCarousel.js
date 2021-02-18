@@ -34,7 +34,7 @@ export default class ProgressCorousel extends Container {
   _createCardsContainer(arrowOffset) {
     var cardOffset = 12;
     var cardsAmount = this.rewardsConfig.length-1;
-    var visibleCards = cardsAmount;
+    var visibleCards = 4;
     var cardsContainer = new Container();
 
     cardsContainer.visibleCards = visibleCards;

@@ -5,7 +5,9 @@ import config from '../config';
 
 import gltfPath from '../assets/models/mandalorian/scene.gltf';
 import pugGltfPath from '../assets/models/pug/scene.gltf';
+import pugSupremGltfPath from '../assets/models/pug_suprem/scene.gltf';
 import shipGltfPath from '../assets/models/razorcrest/scene.gltf';
+import stGltfPath from '../assets/models/stormtrooper/scene.gltf';
 
 export default class Splash extends Scene {
   constructor() {
@@ -33,44 +35,27 @@ export default class Splash extends Scene {
   }
 
   preload() {
-    window.Assets = Assets
     const images = {
       gamepad: Assets.images.gamepad,
       arrow: Assets.images.arrow,
       mandoThumbnail: Assets.images.mandoThumbnail,
       pugThumbnail: Assets.images.pugThumbnail,
       shipThumbnail: Assets.images.shipThumbnail,
-      // 'models/mandalorian/textures/02_-_Default_baseColor': Assets.images['models/mandalorian/textures/02_-_Default_baseColor'],
-      // 'models/mandalorian/textures/08_-_Default_normal': Assets.images['models/mandalorian/textures/08_-_Default_normal'],
-      // 'models/mandalorian/textures/ARMOUR_3_normal': Assets.images['models/mandalorian/textures/ARMOUR_3_normal'],
-      // 'models/mandalorian/textures/MANDALORIAN_baseColor': Assets.images['models/mandalorian/textures/MANDALORIAN_baseColor'],
-      // 'models/mandalorian/textures/02_-_Default_metallicRoughness': Assets.images['models/mandalorian/textures/02_-_Default_metallicRoughness'],
-      // 'models/mandalorian/textures/11_-_Default_baseColor': Assets.images['models/mandalorian/textures/11_-_Default_baseColor'],
-      // 'models/mandalorian/textures/BODY_baseColor': Assets.images['models/mandalorian/textures/BODY_baseColor'],
-      // 'models/mandalorian/textures/MANDALORIAN_metallicRoughness': Assets.images['models/mandalorian/textures/MANDALORIAN_metallicRoughness'],
-      // 'models/mandalorian/textures/02_-_Default_normal': Assets.images['models/mandalorian/textures/02_-_Default_normal'],
-      // 'models/mandalorian/textures/11_-_Default_normal': Assets.images['models/mandalorian/textures/11_-_Default_normal'],
-      // 'models/mandalorian/textures/BODY_metallicRoughness': Assets.images['models/mandalorian/textures/BODY_metallicRoughness'],
-      // 'models/mandalorian/textures/MANDALORIAN_normal': Assets.images['models/mandalorian/textures/MANDALORIAN_normal'],
-      // 'models/mandalorian/textures/08_-_Default_baseColor': Assets.images['models/mandalorian/textures/08_-_Default_baseColor'],
-      // 'models/mandalorian/textures/ARMOUR_3_baseColor': Assets.images['models/mandalorian/textures/ARMOUR_3_baseColor'],
-      // 'models/mandalorian/textures/CAPE_baseColor': Assets.images['models/mandalorian/textures/CAPE_baseColor'],
-      // 'models/mandalorian/textures/Material_21_baseColor': Assets.images['models/mandalorian/textures/Material_21_baseColor'],
-      // 'models/mandalorian/textures/08_-_Default_metallicRoughness': Assets.images['models/mandalorian/textures/08_-_Default_metallicRoughness'],
-      // 'models/mandalorian/textures/ARMOUR_3_metallicRoughness': Assets.images['models/mandalorian/textures/ARMOUR_3_metallicRoughness'],
-      // 'models/mandalorian/textures/CAPE_metallicRoughness': Assets.images['models/mandalorian/textures/CAPE_metallicRoughness'],
-      // 'models/mandalorian/textures/Material_21_normal': Assets.images['models/mandalorian/textures/Material_21_normal'],
+      musicThumbnail: Assets.images.musicThumbnail,
+      musicPackLarge: Assets.images.musicPackLarge,
+      stormtrooperThumbnail: Assets.images.stormtrooperThumbnail,
     };
     const sounds = {
-      
+      soundtrack_background: Assets.sounds.soundtrack_background
     };
-
 
     var l = new Loader();
 
     l.add('mando', gltfPath);
-    l.add('pug', pugGltfPath);
+    // l.add('pug', pugGltfPath);
     l.add('razorcrest', shipGltfPath);
+    l.add('stormtrooper', stGltfPath);
+    l.add('pug_suprem', pugSupremGltfPath);
 
     var modelsPromise = new Promise(res=>{
       l.load(()=>{
