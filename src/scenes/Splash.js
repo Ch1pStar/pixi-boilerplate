@@ -44,6 +44,9 @@ export default class Splash extends Scene {
       musicThumbnail: Assets.images.musicThumbnail,
       musicPackLarge: Assets.images.musicPackLarge,
       stormtrooperThumbnail: Assets.images.stormtrooperThumbnail,
+      vBucksThumbnail: Assets.images.vBucksThumbnail,
+      vBucksLarge: Assets.images.vBucksLarge,
+      bgLight: Assets.images.bgLight,
     };
     const sounds = {
       soundtrack_background: Assets.sounds.soundtrack_background

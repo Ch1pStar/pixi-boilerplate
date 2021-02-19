@@ -53,7 +53,36 @@ export default {
               text: `THE PUG SET  `,
             },
             tip: {
-              text: `COMPLETE THE BESKAR QUEST TO\nUPGRADE MANDALORIAN'S ARMOR!  `,
+              text: ``,
+            }
+          },
+        },
+        {
+          preview: {
+            name: 'vBucksLarge',
+            type: 'image',
+            config: {x: 0, y: -100, scale: 1, anchor: 0.5},
+          },
+          thumbnail: 'vBucksThumbnail',
+          info: {
+            type: {
+              text: 'CURRENCY ',
+            },
+            quality: {
+              text: 'LEGENDARY  ',
+              style: {fill: 0xFFA34C}
+            },
+            name: {
+              text: 'V-BUCKS ',
+            },
+            description: {
+              text: `Valuable currency used to purchase goods from the store `,
+            },
+            collection: {
+              text: ``,
+            },
+            tip: {
+              text: '',
             }
           },
         },
@@ -88,6 +117,33 @@ export default {
         },
         {
           preview: {
+            name: 'mando',
+            config: {x: 0,y: 1, scale: 0.025,}
+          },
+          thumbnail: 'mandoThumbnail',
+          info: {
+            type: {
+              text: 'Outfit',
+            },
+            quality: {
+              text: 'Epic',
+            },
+            name: {
+              text: 'Mandalorian',
+            },
+            description: {
+              text: `Forged on a girddle of rage.\n[Enlightened]`,
+            },
+            collection: {
+              text: `THE BREAKFAST BANDING SET`,
+            },
+            tip: {
+              text: `COMPLETE THE BESKAR QUEST TO\nUPGRADE MANDALORIAN'S ARMOR!  `,
+            }
+          },
+        },
+        {
+          preview: {
             name: 'stormtrooper',
             config: {x: 0, y: -2.5, scale: 0.025},
           },
@@ -108,33 +164,6 @@ export default {
             },
             collection: {
               text: `THE PUG SET  `,
-            },
-            tip: {
-              text: `COMPLETE THE BESKAR QUEST TO\nUPGRADE MANDALORIAN'S ARMOR!  `,
-            }
-          },
-        },
-        {
-          preview: {
-            name: 'mando',
-            config: {x: 0,y: 1, scale: 0.025,}
-          },
-          thumbnail: 'mandoThumbnail',
-          info: {
-            type: {
-              text: 'Outfit',
-            },
-            quality: {
-              text: 'Epic',
-            },
-            name: {
-              text: 'Mandalorian',
-            },
-            description: {
-              text: `Forged on a girddle of rage.\n[Enlightened]`,
-            },
-            collection: {
-              text: `THE BREAKFAST BANDING SET`,
             },
             tip: {
               text: `COMPLETE THE BESKAR QUEST TO\nUPGRADE MANDALORIAN'S ARMOR!  `,
@@ -165,6 +194,95 @@ export default {
             },
             tip: {
               text: `COMPLETE THE BESKAR QUEST TO\nUPGRADE MANDALORIAN'S ARMOR!  `,
+            }
+          },
+        },
+
+        {
+          preview: {
+            name: 'vBucksLarge',
+            type: 'image',
+            config: {x: 0, y: -100, scale: 1, anchor: 0.5},
+          },
+          thumbnail: 'vBucksThumbnail',
+          info: {
+            type: {
+              text: 'CURRENCY ',
+            },
+            quality: {
+              text: 'LEGENDARY  ',
+              style: {fill: 0xFFA34C}
+            },
+            name: {
+              text: 'V-BUCKS ',
+            },
+            description: {
+              text: `Valuable currency used to purchase goods from the store `,
+            },
+            collection: {
+              text: ``,
+            },
+            tip: {
+              text: '',
+            }
+          },
+        },
+
+        {
+          preview: {
+            name: 'vBucksLarge',
+            type: 'image',
+            config: {x: 0, y: -100, scale: 1, anchor: 0.5},
+          },
+          thumbnail: 'vBucksThumbnail',
+          info: {
+            type: {
+              text: 'CURRENCY ',
+            },
+            quality: {
+              text: 'LEGENDARY  ',
+              style: {fill: 0xFFA34C}
+            },
+            name: {
+              text: 'V-BUCKS ',
+            },
+            description: {
+              text: `Valuable currency used to purchase goods from the store `,
+            },
+            collection: {
+              text: ``,
+            },
+            tip: {
+              text: '',
+            }
+          },
+        },
+        {
+          preview: {
+            name: 'vBucksLarge',
+            type: 'image',
+            config: {x: 0, y: -100, scale: 1, anchor: 0.5},
+          },
+          thumbnail: 'vBucksThumbnail',
+          info: {
+            type: {
+              text: 'CURRENCY ',
+            },
+            quality: {
+              text: 'LEGENDARY  ',
+              style: {fill: 0xFFA34C}
+            },
+            name: {
+              text: 'V-BUCKS ',
+            },
+            description: {
+              text: `Valuable currency used to purchase goods from the store `,
+            },
+            collection: {
+              text: ``,
+            },
+            tip: {
+              text: '',
             }
           },
         },

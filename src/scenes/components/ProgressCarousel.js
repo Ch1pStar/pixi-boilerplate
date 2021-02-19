@@ -34,7 +34,7 @@ export default class ProgressCorousel extends Container {
   _createCardsContainer(arrowOffset) {
     var cardOffset = 12;
     var cardsAmount = this.rewardsConfig.length-1;
-    var visibleCards = 4;
+    var visibleCards = 7;
     var cardsContainer = new Container();
 
     cardsContainer.visibleCards = visibleCards;
@@ -42,9 +42,6 @@ export default class ProgressCorousel extends Container {
 
     for(let i=0;i<=cardsAmount;i++) {
       var card = this._createCarouselCard(i);
-
-      card.pivot.x = card.width/2;
-      card.pivot.y = card.height/2;
 
       card.x = ((card.width+cardOffset)*i) + arrowOffset;
       cardsContainer.addChild(card);
@@ -103,11 +100,10 @@ export default class ProgressCorousel extends Container {
   _createCarouselCard(index = 0) {
     var label = index+1;
     var cnt = new Container();
+    var itemImg = this._createCardItemBackgroundTexture();
 
-    // tmp
-    var itemImg = this.cardItemBackgroundTexture.clone();
     itemImg.name = 'Card Background'
-    itemImg.tint = 0x0F4691;
+    itemImg.tint = 0x00A2F6;
 
     cnt.addChild(itemImg);
 
@@ -116,7 +112,7 @@ export default class ProgressCorousel extends Container {
     cnt.addChild(thumbnail);
 
 
-    var priceImg = this.cardPriceBackgroundTexture.clone();
+    var priceImg = this._createCardPriceBackgroundTexture();
 
     priceImg.y = cnt.height+5;
     cnt.addChild(priceImg);
@@ -130,7 +126,13 @@ export default class ProgressCorousel extends Container {
 
     cnt.interactive = true;
     cnt.buttonMode = true;
+
+    cnt.pivot.x = cnt.width/2;
+    cnt.pivot.y = cnt.height/2;
+
     cnt.on('pointerover', ()=>{
+      if(cnt.isSelected) return;
+
       gsap.to(cnt, {
         duration: 0.5,
         pixi: {
@@ -140,6 +142,8 @@ export default class ProgressCorousel extends Container {
     });
 
     cnt.on('pointerout', ()=>{
+      if(cnt.isSelected) return;
+
       gsap.to(cnt, {
         duration: 0.5,
         pixi: {
@@ -156,6 +160,16 @@ export default class ProgressCorousel extends Container {
   selectCard(index) {
   	var cnt = this._cardsContainer.children[index];
 
+    if(cnt.isSelected) return;
+
+    this._cardsContainer.children.forEach((card)=>{
+      card.isSelected = false;
+      card.scale.set(1)
+    });    
+
+
+    cnt.isSelected = true;
+
 	  gsap.to(cnt, {
 	    duration: 0.2,
 	    pixi: {
@@ -164,13 +178,9 @@ export default class ProgressCorousel extends Container {
 	  });
   }
 
-
-  get cardPriceBackgroundTexture() {
-    if(this._cardPriceBackgroundTexture) {
-      return this._cardPriceBackgroundTexture;
-    }
-
+  _createCardPriceBackgroundTexture() {
     var g = new PIXI.Graphics();
+  
     g.beginFill(0x022A8D);
     g.moveTo(0, 3);
     g.lineTo(100, 0);
@@ -178,18 +188,10 @@ export default class ProgressCorousel extends Container {
     g.lineTo(0, 25);
     g.lineTo(0, 3);
 
-    // g.cacheAsBitmap = true;
-
-    this._cardPriceBackgroundTexture = g;
-
     return g;
   }
 
-  get cardItemBackgroundTexture() {
-    if(this._cardItemBackgroundTexture) {
-      return this._cardItemBackgroundTexture;
-    }
-
+  _createCardItemBackgroundTexture() {
     var g = new PIXI.Graphics();
     g.beginFill(0xffffff);
     g.moveTo(0, 10); // top left
@@ -197,10 +199,6 @@ export default class ProgressCorousel extends Container {
     g.lineTo(100, 147); // bottom right
     g.lineTo(0, 150); // bottom left
     g.lineTo(0, 10); // top left
-
-    // g.cacheAsBitmap = true;
-
-    this._cardItemBackgroundTexture = g;
 
     return g;
   }

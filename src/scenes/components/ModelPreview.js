@@ -28,13 +28,13 @@ export default class ModelPreview extends Container{
 
 		if(!active) return;
 
-		await gsap.to(active, {
-			duration: 0.5,
-			x: -5,
-			pixi: {
-				scale: 0.00001
-			}
-		}).then();
+		// await gsap.to(active, {
+		// 	duration: 0.5,
+		// 	x: -5,
+		// 	pixi: {
+		// 		scale: 0.00001
+		// 	}
+		// }).then();
 
 		this.removeChildren();
 	}
@@ -57,16 +57,15 @@ export default class ModelPreview extends Container{
 		model.scale.set(config.scale);
 		this.addChild(model);
 
-		await gsap.to(model, {
-			duration: 0.5,
-			x: config.x,
-			y: config.y,
-		}).then();
+		// await gsap.to(model, {
+		// 	duration: 0.5,
+		// 	x: config.x,
+		// 	y: config.y,
+		// }).then();
 
-		// model.x = config.x;
-		// model.y = config.y;
-		// model.scale.set(config.scale);
-
+		model.x = config.x;
+		model.y = config.y;
+		model.scale.set(config.scale);
 
 		if(model.animations.length) {
 		  model.animations[0].loop = true; 

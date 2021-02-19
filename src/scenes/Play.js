@@ -1,3 +1,4 @@
+import { Sprite } from 'pixi.js';
 import Scene from './Scene';
 import Assets from '../core/AssetManager';
 
@@ -11,10 +12,6 @@ export default class Play extends Scene {
   async onCreated() {
     var cfg = config.scenes.Play;
 
-    // console.error(Assets.sounds.soundtrack_background.state())
-    Assets.sounds.soundtrack_background.play()
-    Assets.sounds.soundtrack_background.play()
-
     this.modelPreview = new ModelPreview();
     this.addChild(this.modelPreview);
 
@@ -24,7 +21,7 @@ export default class Play extends Scene {
     this.progressCarousel = new ProgressCarousel(cfg.rewards, (index)=>this.selectItem(index));
     this.addChild(this.progressCarousel);
 
-    this.selectItem(0);
+    this.selectItem(2);
   }
 
   /**
@@ -36,6 +33,15 @@ export default class Play extends Scene {
    */
   onResize(width, height) { // eslint-disable-line no-unused-vars
 
+  }
+
+  startBackgroundMusic() {
+    var playBackgroundMusic = () => {
+      Assets.sounds.soundtrack_background.play();
+      document.body.removeEventListener('click', playBackgroundMusic);      
+    }
+
+    document.body.addEventListener('click', playBackgroundMusic);
   }
 
   selectItem(itemIndex) {

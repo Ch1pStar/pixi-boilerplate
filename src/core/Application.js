@@ -96,16 +96,25 @@ export default class GameApplication extends Application {
    *
    */
   async createBackground() {
-    const images = { background: Assets.images.background };
+    const images = { 
+      background: Assets.images.background,
+      bgLight: Assets.images.bgLight,
+    };
 
     await Assets.load({ images });
     await Assets.prepareImages(images);
 
-    const sprite = Sprite.from('background');
+    const bgSprite = Sprite.from('background');
+    bgSprite.alpha = 0.1
+    this.stage.addChild(bgSprite)
 
-    sprite.alpha = 0.2
-    this.stage.addChildAt(sprite);
-    this.background = sprite;
+    const lightSprite = Sprite.from('bgLight');
+
+    lightSprite.width = this.renderer.width;
+    lightSprite.height = this.renderer.height;
+
+    this.stage.addChildAt(lightSprite);
+    this.background = bgSprite;
   }
 }
 
