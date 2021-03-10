@@ -107,6 +107,7 @@ export default class GameApplication extends Application {
     const bgSprite = Sprite.from('background');
     bgSprite.alpha = 0.1
     this.stage.addChild(bgSprite)
+    this.background = bgSprite;
 
     const lightSprite = Sprite.from('bgLight');
 
@@ -114,7 +115,6 @@ export default class GameApplication extends Application {
     lightSprite.height = this.renderer.height;
 
     this.stage.addChildAt(lightSprite);
-    this.background = bgSprite;
   }
 }
 

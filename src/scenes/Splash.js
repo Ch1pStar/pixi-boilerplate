@@ -13,9 +13,6 @@ export default class Splash extends Scene {
   constructor() {
     super();
 
-    var tmpH1 = document.createElement('h1');
-    document.body.appendChild(tmpH1);
-
     this.loadingText = new Text('0%', {
       fontSize: 75,
       fill: 0xffc900,

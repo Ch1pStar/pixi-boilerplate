@@ -112,17 +112,17 @@ export default class ProgressCorousel extends Container {
     cnt.addChild(thumbnail);
 
 
-    var priceImg = this._createCardPriceBackgroundTexture();
+    var labelImg = this._createLabelBackgroundTexture();
 
-    priceImg.y = cnt.height+5;
-    cnt.addChild(priceImg);
+    labelImg.y = cnt.height+5;
+    cnt.addChild(labelImg);
 
-    var priceTxt = new Text(label, {fontFamily:'Burbank', fill: 0x3282C6});
+    var labelTxt = new Text(label, {fontFamily:'Burbank', fill: 0x3282C6});
 
-    priceTxt.anchor.x = 0.5;
-    priceTxt.x = priceImg.width/2;
-    priceTxt.y = priceImg.y;
-    cnt.addChild(priceTxt);
+    labelTxt.anchor.x = 0.5;
+    labelTxt.x = labelImg.width/2;
+    labelTxt.y = labelImg.y;
+    cnt.addChild(labelTxt);
 
     cnt.interactive = true;
     cnt.buttonMode = true;
@@ -178,7 +178,7 @@ export default class ProgressCorousel extends Container {
 	  });
   }
 
-  _createCardPriceBackgroundTexture() {
+  _createLabelBackgroundTexture() {
     var g = new PIXI.Graphics();
   
     g.beginFill(0x022A8D);
