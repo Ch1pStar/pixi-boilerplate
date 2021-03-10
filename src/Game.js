@@ -1,6 +1,8 @@
 import Splash from './scenes/Splash';
 import Play from './scenes/Play';
-import { Container } from 'pixi.js';
+import { Container, Text } from 'pixi.js';
+
+import '../fonts.css';
 
 /**
  * Main game stage, manages scenes/levels.

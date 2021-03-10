@@ -1,16 +1,27 @@
 import { Sprite } from 'pixi.js';
 import Scene from './Scene';
-import gsap from 'gsap';
+import Assets from '../core/AssetManager';
+
+import ModelPreview from './components/ModelPreview';
+import ProgressCarousel from './components/ProgressCarousel';
+import InfoContainer from './components/InfoContainer';
+
+import config from '../config';
 
 export default class Play extends Scene {
   async onCreated() {
-    // create a sprite with the gamepad asset as texture and add it to the stage
-    const sprite = Sprite.from('gamepad');
+    var cfg = config.scenes.Play;
 
-    this.addChild(sprite);
-    sprite.anchor.set(0.5);
+    this.modelPreview = new ModelPreview();
+    this.addChild(this.modelPreview);
 
-    gsap.to(sprite.scale, { x: 1.1, y: 1.1, duration: 1, repeat: -1, yoyo: true, ease: "power2.out" });
+    this.infoContainer = new InfoContainer(cfg.defaultInfoStyle);
+    this.addChild(this.infoContainer);
+
+    this.progressCarousel = new ProgressCarousel(cfg.rewards, (index)=>this.selectItem(index));
+    this.addChild(this.progressCarousel);
+
+    this.selectItem(2);
   }
 
   /**
@@ -22,5 +33,22 @@ export default class Play extends Scene {
    */
   onResize(width, height) { // eslint-disable-line no-unused-vars
 
+  }
+
+  startBackgroundMusic() {
+    var playBackgroundMusic = () => {
+      Assets.sounds.soundtrack_background.play();
+      document.body.removeEventListener('click', playBackgroundMusic);      
+    }
+
+    document.body.addEventListener('click', playBackgroundMusic);
+  }
+
+  selectItem(itemIndex) {
+    var {info, preview} = config.scenes.Play.rewards[itemIndex];
+
+    this.progressCarousel.selectCard(itemIndex);
+    this.infoContainer.updateInfo(info)
+    this.modelPreview.update(preview);
   }
 }

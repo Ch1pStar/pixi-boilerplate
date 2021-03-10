@@ -4,6 +4,7 @@ import Game from '../Game';
 import { Viewport } from 'pixi-viewport';
 import { center } from './utils';
 import Assets from './AssetManager';
+import * as PIXI3D from 'pixi3d';
 
 /**
  * Game entry point. Holds the game's viewport and responsive background
@@ -66,6 +67,10 @@ export default class GameApplication extends Application {
     if (this.config.game.decelerate) viewport.decelerate();
 
     this.viewport = viewport;
+
+    let control = new PIXI3D.CameraOrbitControl(this.view)
+
+    window.control = control
   }
 
   /**
@@ -91,15 +96,25 @@ export default class GameApplication extends Application {
    *
    */
   async createBackground() {
-    const images = { background: Assets.images.background };
+    const images = { 
+      background: Assets.images.background,
+      bgLight: Assets.images.bgLight,
+    };
 
     await Assets.load({ images });
     await Assets.prepareImages(images);
 
-    const sprite = Sprite.from('background');
+    const bgSprite = Sprite.from('background');
+    bgSprite.alpha = 0.1
+    this.stage.addChild(bgSprite)
+    this.background = bgSprite;
 
-    this.stage.addChildAt(sprite);
-    this.background = sprite;
+    const lightSprite = Sprite.from('bgLight');
+
+    lightSprite.width = this.renderer.width;
+    lightSprite.height = this.renderer.height;
+
+    this.stage.addChildAt(lightSprite);
   }
 }
 
